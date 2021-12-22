@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo!</title>
+</head>
+<body>
+    <div>
+        <h1>
+          Questão 1 - Bingo!
+        </h1>
+      
+        <h3>
+          Clique na tela e aperte X para sortear um número.
+        </h3>
+
+        <h4>
+          Números sorteados:
+        </h4>
+
+        <p id='result'></p>
+        
+      </div>
+
+    <script>
+        const rand = (limiteInferior, limiteSuperior) => {
+            return Math.floor(Math.random() * limiteSuperior + limiteInferior)
+        }
+
+        let sorteados = []
+
+        const resultado = document.getElementById('result')
+
+        const sorteiaNumero = (event) => {
+        if(event.code == 'KeyX') {
+            let numeroSorteado = rand(1,79)
+            if (sorteados.length == 79) return alert('Todos os números ja foram sorteados')
+            if (!sorteados.includes(numeroSorteado))
+            sorteados.push(numeroSorteado)
+            else
+                sorteiaNumero(event)
+            resultado.innerText = sorteados
+        }
+        }
+
+        document.addEventListener('keypress', sorteiaNumero);
+    </script>
+</body>
+</html>
