@@ -34,15 +34,15 @@
         const resultado = document.getElementById('result')
 
         const sorteiaNumero = (event) => {
-        if(event.code == 'KeyX') {
-            let numeroSorteado = rand(1,79)
-            if (sorteados.length == 79) return alert('Todos os números ja foram sorteados')
-            if (!sorteados.includes(numeroSorteado))
-            sorteados.push(numeroSorteado)
-            else
-                sorteiaNumero(event)
-            resultado.innerText = sorteados
-        }
+            if(event.code == 'KeyX') {
+                let numeroSorteado = rand(1,79)
+                if (sorteados.length == 79) return alert('Todos os números ja foram sorteados')
+                if (!sorteados.includes(numeroSorteado))
+                sorteados.push(numeroSorteado)
+                else
+                    sorteiaNumero(event)
+                resultado.innerText = sorteados
+            }
         }
 
         document.addEventListener('keypress', sorteiaNumero);
